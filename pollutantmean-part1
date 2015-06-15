@@ -17,8 +17,7 @@ pollutantmean <- function(directory, pollutant, id = 1:332) {
   
   for (i in seq_along(id)) 
   {
-    ## On transforme l'index en nom de fichier, attention au 00 en préfixe
-    filename <- 
+      filename <- 
       paste(
         
         if (id[i] < 10) {paste("00",id[i],sep="")} 
@@ -29,10 +28,8 @@ pollutantmean <- function(directory, pollutant, id = 1:332) {
         ,sep=""
       )
     m <- rbind(m,read.csv(paste(getwd(),"/",directory,"/",filename,sep="")))
-    ##print(filename)
   }
-  ## return(m)
-  return(
+   return(
       mean(
         as.matrix(m[pollutant])
         ,na.rm = TRUE
